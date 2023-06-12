@@ -1,0 +1,28 @@
+package TestCases;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Base.BaseTests;
+import PageObjects.Loginpage;
+import PageObjects.SecureAreaPage;
+
+public class Loginpagetest extends BaseTests {
+	
+	@Test
+	public void testSuccessfulLogin() {
+		Loginpage loginpage = new homepage.clickformAuthentication();
+		loginpage.setUsername("tomsmith");
+		loginpage.setPassword("SuperSecretPassword");
+		SecureAreaPage secureAreaPage = loginpage.clickLoginButton();
+		assertTrue(secureAreaPage.getAlertText()
+				.contains("you logged into a secure area!"),
+				"Alert text is incorrect");
+		
+		
+	}
+
+}
