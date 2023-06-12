@@ -1,0 +1,20 @@
+package TestCases;
+
+import static org.testng.Assert.assertEquals;
+
+import org.testng.annotations.Test;
+
+import Base.BaseTests;
+
+public class testContextMenu extends BaseTests{
+	
+	@Test
+	public void testContext() {
+		var contextMenu = homepage.clickContextMenu();
+		contextMenu.clickContextBox();
+		contextMenu.acceptPopUp();
+		
+		assertEquals(contextMenu.verifyText(), "You selected a context menu", "Your selection is incorrect");
+	}
+
+}
