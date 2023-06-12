@@ -1,0 +1,19 @@
+package TestCases;
+
+import static org.testng.Assert.assertEquals;
+
+import org.testng.annotations.Test;
+
+import Base.BaseTests;
+
+public class testFileUpload extends BaseTests {
+	
+	@Test
+	public void testFileUpload () {
+		var uploadPage = homepage.clickFileUpload();
+		uploadPage.upLoadFile(null); // null bc no path for file to copy
+		
+		assertEquals(uploadPage.getUploadedFiles(),null, "uploaded files incorrect");
+	}
+
+}
