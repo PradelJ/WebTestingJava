@@ -1,0 +1,26 @@
+package TestCases;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.Keys;
+
+import org.testng.annotations.Test;
+
+import Base.BaseTests;
+
+public class KeysTests extends BaseTests {
+
+	
+	@Test
+	public void testBackspace(){
+		var keyPage = homepage.clickKeyPresses();// found in HomePage class " clickKeyPresses"
+		keyPage.entertext("A" + Keys.BACK_SPACE); // "entertext" found in KeyPressesPage class and contains the "inputField" element 
+		assertEquals(keyPage.getResult()," You entered: BACK_SPACE"); // "getResult" is the method name in KeyPressesPage class where the resultText element is stored
+	}
+	//This test below shows how to type multiple keys 
+	@Test
+	public void testPi() {
+		var keyPage = homepage.clickKeyPresses();
+		keyPage.enterPi();  // enterPi is a method found in KeyPressesPage class that stores "ALT keys & p"
+	}
+}
